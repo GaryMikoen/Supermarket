@@ -7,6 +7,6 @@ public class Cashdesk {
     }
 
     public void pay(Shoppingcart customer){
-        System.out.println(customer.itemsInChart());
+        System.out.println(customer.itemsInCart());
     }
 }

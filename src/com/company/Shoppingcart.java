@@ -24,7 +24,7 @@ public class Shoppingcart {
         }
     }
 
-    public ArrayList<String> itemsInChart(){
+    public ArrayList<String> itemsInCart(){
         return itemsInCart;
     }
 
