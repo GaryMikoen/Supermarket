@@ -1,14 +1,15 @@
 package com.company;
 
 public abstract class Product {
-    private int price;
-    private String name;
+    protected double price;
+    protected String name;
 
-    public Product() {
-
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
 

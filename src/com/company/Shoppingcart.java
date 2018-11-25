@@ -4,27 +4,33 @@ import java.util.ArrayList;
 
 public class Shoppingcart {
 
-    private ArrayList<String> itemsInCart = new ArrayList<>();
+    private ArrayList<Product> itemsInCart = new ArrayList<>();
 
 
     public Shoppingcart() {
     }
 
-    public void addItemToCart(String item){
+    public void addItemToCart(Product item){
         itemsInCart.add(item);
     }
 
-    public void deleteItem(String item){
+    public void deleteItem(Product item){
         itemsInCart.remove(item);
     }
 
     public void showItemsInCart(){
-        for (String item:itemsInCart){
-            System.out.println(item);
+        for (Product item:itemsInCart){
+            System.out.println(item.getName());
         }
     }
 
-    public ArrayList<String> itemsInCart(){
+    public void showPricesInCart(){
+        for (Product item:itemsInCart){
+            System.out.println(item.getPrice());
+        }
+    }
+
+    public ArrayList<Product> itemsInCart(){
         return itemsInCart;
     }
 
