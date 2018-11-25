@@ -1,5 +1,6 @@
 package com.company;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Cashdesk {
@@ -36,6 +37,7 @@ public class Cashdesk {
         int diaperCounter = 0;
         double diaperPrice = 0;
         int quarkCounter = 0;
+        double quarkPrice = 0;
         for (int i = 0; i <= itemsInCart.size() - 1; i++) {
             if (itemsInCart.get(i).getName().equals("Robijn")) {
                 robijnCounter += 1;
@@ -45,12 +47,15 @@ public class Cashdesk {
                 diaperPrice = itemsInCart.get(i).getPrice();
             } else if (itemsInCart.get(i).getName().equals("Quark")) {
                 quarkCounter += 1;
+                quarkPrice = itemsInCart.get(i).getPrice();
             }
         }
         double discountRobijn = robijnDiscount(robijnCounter, robijnPrice);
         double discountDiapers = diaperDiscount(diaperCounter, diaperPrice);
+        double discountQuark = quarkDiscount(quarkCounter, quarkPrice);
         System.out.println("discount from robijn = " + discountRobijn);
         System.out.println("discount from diapers = " + discountDiapers);
+        System.out.println("discount from quark = " + discountQuark);
     }
 
     private double robijnDiscount(int robijnCounter, double robijnPrice){
@@ -79,5 +84,15 @@ public class Cashdesk {
         }
 
         return discountDiaper;
+    }
+
+    private double quarkDiscount(int quarkCounter, double quarkPrice) {
+        LocalDate now = LocalDate.now();
+        double discountQuark = 0;
+        if (now.getDayOfWeek().toString().equals("WEDNESDAY")){
+            discountQuark =(quarkCounter * quarkPrice)/2;
+        }
+
+        return discountQuark;
     }
 }
