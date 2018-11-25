@@ -12,13 +12,13 @@ public class Main {
 	customer1.addItemToCart(new Brinta());
 	customer1.addItemToCart(new Robijn());
 
-	customer1.showItemsInCart();
+
 	customer1.deleteItem("Robijn");
-	System.out.println();
 	customer1.showItemsInCart();
+	System.out.println();
 
 	Cashdesk bill = new Cashdesk();
-	bill.pay(customer1);
+	bill.pay(customer1, 100);
 
     }
 }
