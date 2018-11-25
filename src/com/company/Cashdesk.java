@@ -34,6 +34,7 @@ public class Cashdesk {
         int robijnCounter = 0;
         double robijnPrice = 0;
         int diaperCounter = 0;
+        double diaperPrice = 0;
         int quarkCounter = 0;
         for (int i = 0; i <= itemsInCart.size() - 1; i++) {
             if (itemsInCart.get(i).getName().equals("Robijn")) {
@@ -41,12 +42,15 @@ public class Cashdesk {
                 robijnPrice = itemsInCart.get(i).getPrice();
             } else if (itemsInCart.get(i).getName().equals("Diapers")) {
                 diaperCounter += 1;
+                diaperPrice = itemsInCart.get(i).getPrice();
             } else if (itemsInCart.get(i).getName().equals("Quark")) {
                 quarkCounter += 1;
             }
         }
         double discountRobijn = robijnDiscount(robijnCounter, robijnPrice);
-
+        double discountDiapers = diaperDiscount(diaperCounter, diaperPrice);
+        System.out.println("discount from robijn = " + discountRobijn);
+        System.out.println("discount from diapers = " + discountDiapers);
     }
 
     private double robijnDiscount(int robijnCounter, double robijnPrice){
@@ -62,5 +66,18 @@ public class Cashdesk {
         }
 
         return originalRobijnPrice - totalRobijnPrice;
+    }
+
+    private double diaperDiscount(int diaperCounter, double diaperPrice) {
+
+        double discountDiaper = 0;
+        for(int i = 0; i<= diaperCounter; i++){
+            if (i%4 ==0 && i !=0){
+                System.out.println((i%4 ==0));
+                discountDiaper += diaperPrice;
+            }
+        }
+
+        return discountDiaper;
     }
 }
