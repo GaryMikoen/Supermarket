@@ -10,10 +10,12 @@ public class Main {
 	customer1.addItemToCart(new Quark());
 	customer1.addItemToCart(new Diapers());
 	customer1.addItemToCart(new Brinta());
+	customer1.addItemToCart(new Robijn());
 
 	customer1.showItemsInCart();
-	customer1.showPricesInCart();
-//	customer1.deleteItem("Robijn");
+	customer1.deleteItem("Robijn");
+	System.out.println();
+	customer1.showItemsInCart();
 
 	Cashdesk bill = new Cashdesk();
 	bill.pay(customer1);
