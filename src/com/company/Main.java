@@ -11,6 +11,11 @@ public class Main {
 	customer1.addItemToCart(new Diapers());
 	customer1.addItemToCart(new Brinta());
 	customer1.addItemToCart(new Robijn());
+	customer1.addItemToCart(new Robijn());
+	customer1.addItemToCart(new Robijn());
+	customer1.addItemToCart(new Robijn());
+	customer1.addItemToCart(new Robijn());
+
 
 
 	customer1.deleteItem("Robijn");
