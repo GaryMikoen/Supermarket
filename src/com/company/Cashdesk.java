@@ -13,13 +13,24 @@ public class Cashdesk {
     public Cashdesk() {
     }
 
+
+
     public void pay(Shoppingcart customer, double amountMoney) {
         this.amountMoney = amountMoney;
         this.itemsInCart = customer.itemsInCart();
-        System.out.println(itemsInCart);
+
+        System.out.println("items to pay");
+        for (int i = 0; i<= itemsInCart.size()-1; i++){
+            System.out.println(itemsInCart.get(i).getName());
+        }
+
+        System.out.println("prices");
         originalPrice = checkTotalPrice();
-        checkDiscount();
         System.out.println("original price is " + originalPrice + " Euro");
+        checkDiscount();
+        double newprice = (originalPrice - discount);
+        System.out.println("New price = " + newprice);
+        System.out.println("Money change = " + (amountMoney -newprice));
     }
 
     private double checkTotalPrice() {
@@ -53,9 +64,12 @@ public class Cashdesk {
         double discountRobijn = robijnDiscount(robijnCounter, robijnPrice);
         double discountDiapers = diaperDiscount(diaperCounter, diaperPrice);
         double discountQuark = quarkDiscount(quarkCounter, quarkPrice);
+        this.discount = discountRobijn + discountDiapers + discountQuark;
         System.out.println("discount from robijn = " + discountRobijn);
         System.out.println("discount from diapers = " + discountDiapers);
         System.out.println("discount from quark = " + discountQuark);
+        System.out.println("total discount = " + discount);
+
     }
 
     private double robijnDiscount(int robijnCounter, double robijnPrice){
@@ -78,7 +92,6 @@ public class Cashdesk {
         double discountDiaper = 0;
         for(int i = 0; i<= diaperCounter; i++){
             if (i%4 ==0 && i !=0){
-                System.out.println((i%4 ==0));
                 discountDiaper += diaperPrice;
             }
         }

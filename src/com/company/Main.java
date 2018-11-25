@@ -26,11 +26,13 @@ public class Main {
 
 
 	customer1.deleteItem("Robijn");
+	System.out.println("items in cart");
 	customer1.showItemsInCart();
 	System.out.println();
 
 	Cashdesk bill = new Cashdesk();
 	bill.pay(customer1, 100);
+
 
     }
 }
