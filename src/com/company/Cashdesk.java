@@ -24,7 +24,8 @@ public class Cashdesk {
         for (int i = 0; i<= itemsInCart.size()-1; i++){
             System.out.println(itemsInCart.get(i).getName());
         }
-
+        
+        System.out.println();
         System.out.println("prices");
 
         //original total price is
