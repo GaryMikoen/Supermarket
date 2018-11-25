@@ -10,8 +10,8 @@ public class Shoppingcart {
     public Shoppingcart() {
     }
 
-    public void addItemToCart(){
-        itemsInCart.add("Robijn");
+    public void addItemToCart(String item){
+        itemsInCart.add(item);
     }
 
     public void deleteItem(String item){
@@ -22,7 +22,10 @@ public class Shoppingcart {
         for (String item:itemsInCart){
             System.out.println(item);
         }
+    }
 
+    public ArrayList<String> itemsInChart(){
+        return itemsInCart;
     }
 
 }
